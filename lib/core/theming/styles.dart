@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/font_weight_helper.dart';
+import 'package:vocaby/features/my_list/data/artikel.dart';
 
 class TextStyles {
   static TextStyle nounStyle = TextStyle(
@@ -36,4 +37,12 @@ class TextStyles {
     fontFamily: 'Circular Std',
     color: Colors.white,
   );
+
+  static TextStyle getArtikleStyle(String value) {
+    return value == artikel[0]
+        ? TextStyles.nounDerStyle
+        : value == artikel[1]
+            ? TextStyles.nounDieStyle
+            : TextStyles.nounDasStyle;
+  }
 }

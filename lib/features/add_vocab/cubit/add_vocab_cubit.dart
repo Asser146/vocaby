@@ -13,6 +13,7 @@ class AddVocabCubit extends Cubit<AddVocabState> {
   TextEditingController nounController = TextEditingController();
   TextEditingController translationController = TextEditingController();
   final VocabStorage storage;
+  late Vocab lastAdded;
   AddVocabCubit(this.storage) : super(AddVocabInitial(artikel: artikel[0]));
 
   TextStyle getArtikleStyle(String value) {
@@ -28,6 +29,10 @@ class AddVocabCubit extends Cubit<AddVocabState> {
     emit(AddVocabArtikelChanged(artikel: currentArtikel));
   }
 
+  Vocab get lastVocab {
+    return lastAdded;
+  }
+
   bool validate() {
     if (nounController.text.isEmpty || translationController.text.isEmpty) {
       return false;
@@ -40,16 +45,13 @@ class AddVocabCubit extends Cubit<AddVocabState> {
         noun: noun,
         arabicTranslation: translation,
       );
-
+      lastAdded = newVocab;
       // Save the vocab
       storage.addVocab(newVocab);
 
       // Clear the text controllers after saving
       nounController.clear();
       translationController.clear();
-
-      // Start animation
-      emit(AddVocabAnimation(startAnimation: true));
 
       return true;
     }

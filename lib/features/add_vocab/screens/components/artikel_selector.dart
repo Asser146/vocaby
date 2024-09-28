@@ -36,10 +36,8 @@ class ArtikelSelector extends StatelessWidget {
                 items: artikel.map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value,
-                        style: context
-                            .read<AddVocabCubit>()
-                            .getArtikleStyle(value)),
+                    child:
+                        Text(value, style: TextStyles.getArtikleStyle(value)),
                   );
                 }).toList(),
                 onChanged: (String? value) {

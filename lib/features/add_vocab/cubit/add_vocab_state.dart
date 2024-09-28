@@ -27,12 +27,3 @@ final class AddVocabNounChanged extends AddVocabState {
   @override
   List<Object> get props => [noun];
 }
-
-class AddVocabAnimation extends AddVocabState {
-  final bool startAnimation;
-
-  const AddVocabAnimation({required this.startAnimation});
-
-  @override
-  List<Object> get props => [startAnimation];
-}

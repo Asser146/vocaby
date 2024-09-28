@@ -4,11 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/styles.dart';
 import 'package:vocaby/features/add_vocab/cubit/add_vocab_cubit.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({
-    super.key,
-  });
+  const AddButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +15,18 @@ class AddButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 15.h),
       child: GestureDetector(
         onTap: () {
-          if (!context.read<AddVocabCubit>().validate()) {
+          final cubit = context.read<AddVocabCubit>();
+          if (!cubit.validate()) {
             showDialog<void>(
               context: context,
               barrierDismissible: true,
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: const Text('Some Fields are Missing'),
-                  content: const SingleChildScrollView(
-                    child: Text('Check your inputs'),
-                  ),
+                  content: const Text('Check your inputs'),
                   actions: <Widget>[
                     TextButton(
-                      child: const Text('ok'),
+                      child: const Text('OK'),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -37,6 +35,15 @@ class AddButton extends StatelessWidget {
                 );
               },
             );
+          } else {
+            Fluttertoast.showToast(
+                msg: "${cubit.lastAdded.noun} Added to the Vocab list ✔",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.TOP,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.sp);
           }
         },
         child: Container(

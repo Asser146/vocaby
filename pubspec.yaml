@@ -54,6 +54,7 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   shimmer: ^3.0.0
   bloc: ^8.1.4
+  fluttertoast: ^8.2.8
 
 # flutter_native_splash:
 #   color: "#8E6CEF"
