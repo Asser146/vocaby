@@ -9,17 +9,27 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: const IconThemeData(color: Colors.white),
       toolbarHeight: 40.h,
-      // shape: RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.only(
-      //     bottomLeft: Radius.circular(22.sp),
-      //     bottomRight: Radius.circular(22.sp),
-      //   ),
-      // ),
-      backgroundColor: ColorsManager.secondaryColor.withOpacity(0.8),
+      // Apply a gradient background
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              ColorsManager.primaryColor, // Black
+              ColorsManager.secondaryColor, // Red
+              ColorsManager.thirdColor, // Yellow
+            ],
+          ),
+        ),
+      ),
       centerTitle: true,
-      title: Text("Vocaby",
-          style: TextStyles.buttonTextWhite.copyWith(fontSize: 20.sp)),
+      title: Text(
+        "Vocaby",
+        style: TextStyles.buttonTextWhite.copyWith(fontSize: 20.sp),
+      ),
     );
   }
 

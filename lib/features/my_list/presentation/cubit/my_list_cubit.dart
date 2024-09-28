@@ -26,12 +26,13 @@ class MyListCubit extends Cubit<MyListState> {
     artikelList = vocablist
         .where((vocab) => vocab.artikel == artikel[currentTabIndex])
         .toList();
-    emit(MyListLoaded(vocabList: vocablist));
+    emit(MyListLoaded(vocabList: artikelList));
   }
 
   void deleteVocab(Vocab vocab) {
     emit(MyListLoading());
     vocablist.remove(vocab);
+    artikelList.remove(vocab);
     storage.saveVocabList(vocablist);
     emit(MyListLoaded(vocabList: vocablist));
   }
@@ -39,30 +40,33 @@ class MyListCubit extends Cubit<MyListState> {
   void changeTab(int index) {
     emit(MyListLoading());
     currentTabIndex = index;
-    emit(MyListTabChanged(index: index));
-  }
-
-  void selectVocab(Vocab vocab) {
-    emit(MyListLoading());
-    currentArtikel = vocab.artikel;
-    emit(MyListEditing(vocab: currentVocab));
-  }
-
-  void editArtikel(String newArtikel) {
-    emit(MyListLoading());
-    currentArtikel = newArtikel;
-    emit(MyListEditing(vocab: currentVocab));
-  }
-
-  void changeVocab(Vocab vocab) {
-    emit(MyListLoading());
-    currentVocab = vocab;
-
-    // Filter the vocab list based on the current tab's artikel
     artikelList = vocablist
         .where((vocab) => vocab.artikel == artikel[currentTabIndex])
         .toList();
-
-    emit(MyListEditing(vocab: currentVocab));
+    emit(MyListTabChanged(index: index, vocabList: artikelList));
   }
+
+  // void selectVocab(Vocab vocab) {
+  //   emit(MyListLoading());
+  //   currentArtikel = vocab.artikel;
+  //   emit(MyListEditing(vocab: currentVocab));
+  // }
+
+  // void editArtikel(String newArtikel) {
+  //   emit(MyListLoading());
+  //   currentArtikel = newArtikel;
+  //   emit(MyListEditing(vocab: currentVocab));
+  // }
+
+  // void changeVocab(Vocab vocab) {
+  //   emit(MyListLoading());
+  //   currentVocab = vocab;
+
+  //   // Filter the vocab list based on the current tab's artikel
+  //   artikelList = vocablist
+  //       .where((vocab) => vocab.artikel == artikel[currentTabIndex])
+  //       .toList();
+
+  //   emit(MyListEditing(vocab: currentVocab));
+  // }
 }

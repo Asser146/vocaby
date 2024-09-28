@@ -1,5 +1,5 @@
 List<String> artikel = [
-  "der",
-  "die",
-  "das",
+  "Der",
+  "Die",
+  "Das",
 ];

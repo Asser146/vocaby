@@ -22,7 +22,7 @@ class TextStyles {
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.semiBold,
     fontFamily: 'Circular Std',
-    color: Colors.white,
+    color: Colors.black,
   );
   static TextStyle hintStyle = TextStyle(
     fontSize: 16.sp,

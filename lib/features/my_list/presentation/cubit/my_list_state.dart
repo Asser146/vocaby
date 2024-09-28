@@ -13,10 +13,11 @@ final class MyListLoading extends MyListState {}
 
 final class MyListTabChanged extends MyListState {
   final int index;
-  const MyListTabChanged({required this.index});
+  final List<Vocab> vocabList;
+  const MyListTabChanged({required this.vocabList, required this.index});
 
   @override
-  List<Object> get props => [index];
+  List<Object> get props => [index,vocabList];
 }
 
 final class MyListLoaded extends MyListState {
