@@ -7,6 +7,7 @@ part 'revise_state.dart';
 
 class ReviseCubit extends Cubit<ReviseState> {
   late List<Vocab> vocabList;
+  List<Vocab> testList = [];
   final VocabStorage storage;
 
   ReviseCubit(this.storage) : super(ReviseInitial()) {
@@ -16,6 +17,29 @@ class ReviseCubit extends Cubit<ReviseState> {
   void loadList() async {
     emit(ReviseLoading());
     vocabList = storage.loadVocabList();
-    emit(ReviseLoaded(vocabList: vocabList));
+    beginTest();
+    emit(ReviseLoaded(vocabList: testList));
   }
+
+  void beginTest() {
+    testList = vocabList;
+    testList.shuffle();
+  }
+
+  bool check(String artikel) {
+    if (artikel == currnet.artikel) {
+      emit(ReviseLoading());
+      getNext();
+      emit(ReviseLoaded(vocabList: testList));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Vocab get currnet {
+    return testList[testList.length - 1];
+  }
+
+  void getNext() => testList.removeLast();
 }

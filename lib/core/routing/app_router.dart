@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vocaby/core/di/dependency_injection.dart';
-import 'package:vocaby/core/routing.dart/routes.dart';
+import 'package:vocaby/core/routing/routes.dart';
 import 'package:vocaby/features/add_vocab/cubit/add_vocab_cubit.dart';
 import 'package:vocaby/features/add_vocab/screens/add_vocab_screen.dart';
 import 'package:vocaby/features/home/home_screen.dart';
