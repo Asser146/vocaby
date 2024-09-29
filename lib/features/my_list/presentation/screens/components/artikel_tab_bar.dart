@@ -31,7 +31,7 @@ class ArtikelTabBar extends StatelessWidget {
             (currentArtikel) {
               return Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: 12.w), // Adds space between tabs
+                    horizontal: 5.w), // Adds space between tabs
                 child: Tab(
                   child: Row(
                     children: [

@@ -9,7 +9,7 @@ import 'package:vocaby/features/my_list/domain/vocab_storage.dart';
 part 'my_list_state.dart';
 
 class MyListCubit extends Cubit<MyListState> {
-  List<Vocab> vocablist = [], artikelList = [];
+  List<Vocab> vocablist = [], artikelList = [], filteredVocab = [];
   late Vocab currentVocab;
   String currentArtikel = '';
   int currentTabIndex = 0;
@@ -46,6 +46,17 @@ class MyListCubit extends Cubit<MyListState> {
     emit(MyListTabChanged(index: index, vocabList: artikelList));
   }
 
+  void search(String query) {
+    if (query.isEmpty) {
+      filteredVocab = [];
+      emit(MyListInitial());
+    } else {
+      filteredVocab = vocablist.where((vocab) {
+        return vocab.noun.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+      emit(MyListSearchLoaded(filteredVocab: filteredVocab));
+    }
+  }
   // void selectVocab(Vocab vocab) {
   //   emit(MyListLoading());
   //   currentArtikel = vocab.artikel;

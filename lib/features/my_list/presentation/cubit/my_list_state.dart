@@ -17,7 +17,7 @@ final class MyListTabChanged extends MyListState {
   const MyListTabChanged({required this.vocabList, required this.index});
 
   @override
-  List<Object> get props => [index,vocabList];
+  List<Object> get props => [index, vocabList];
 }
 
 final class MyListLoaded extends MyListState {
@@ -26,6 +26,14 @@ final class MyListLoaded extends MyListState {
 
   @override
   List<Object> get props => [vocabList];
+}
+
+final class MyListSearchLoaded extends MyListState {
+  final List<Vocab> filteredVocab;
+  const MyListSearchLoaded({required this.filteredVocab});
+
+  @override
+  List<Object> get props => [filteredVocab];
 }
 
 final class MyListEditing extends MyListState {
