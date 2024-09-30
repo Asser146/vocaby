@@ -11,26 +11,26 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 10.h),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.r),
-                topRight: Radius.circular(20.r))),
-        width: double.infinity,
-        height: 45.h, // Adjust height if needed
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: TextField(
-            cursorColor: ColorsManager.primaryColor,
-            onChanged: (query) {
-              context.read<MyListCubit>().search(query);
-            },
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Type to Search ...',
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.h),
+        child: Container(
+          decoration: BoxDecoration(
+              color: ColorsManager.backgroundGrey,
+              borderRadius: BorderRadius.all(Radius.circular(20.r))),
+          // width: double.infinity,
+          height: 45.h, // Adjust height if needed
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: TextField(
+              cursorColor: ColorsManager.primaryColor,
+              onChanged: (query) {
+                context.read<MyListCubit>().search(query);
+              },
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Type to Search ...',
+              ),
             ),
           ),
         ),

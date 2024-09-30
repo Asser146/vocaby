@@ -10,6 +10,7 @@ part 'my_list_state.dart';
 
 class MyListCubit extends Cubit<MyListState> {
   List<Vocab> vocablist = [], artikelList = [], filteredVocab = [];
+  bool isSearchActive = false;
   late Vocab currentVocab;
   String currentArtikel = '';
   int currentTabIndex = 0;
@@ -56,6 +57,11 @@ class MyListCubit extends Cubit<MyListState> {
       }).toList();
       emit(MyListSearchLoaded(filteredVocab: filteredVocab));
     }
+  }
+
+  void toggleSearch() {
+    isSearchActive = !isSearchActive;
+    emit(MyListSearchActivate(acivated: isSearchActive));
   }
   // void selectVocab(Vocab vocab) {
   //   emit(MyListLoading());

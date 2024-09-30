@@ -20,7 +20,7 @@ class ReviseScreen extends StatelessWidget {
           child: context.watch<ReviseCubit>().testList.isEmpty
               ? Text("Start Again?")
               : Builder(builder: (context) {
-                  final vocab = context.read<ReviseCubit>().currnet;
+                  final vocab = context.read<ReviseCubit>().current;
                   return Column(
                     children: [
                       Text(

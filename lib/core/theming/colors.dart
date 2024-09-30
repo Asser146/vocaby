@@ -8,6 +8,7 @@ class ColorsManager {
   static const Color derColor = Color.fromARGB(255, 8, 137, 243);
   static const Color dieColor = Colors.redAccent;
   static const Color dasColor = Color.fromARGB(255, 73, 175, 76);
+  static const Color backgroundGrey = Color.fromARGB(255, 230, 228, 221);
   static Color getArtikelColor(String value) {
     return value == artikel[0]
         ? derColor

@@ -43,3 +43,12 @@ final class MyListEditing extends MyListState {
   @override
   List<Object> get props => [vocab];
 }
+
+
+final class MyListSearchActivate extends MyListState {
+  final bool acivated;
+  const MyListSearchActivate({required this.acivated});
+
+  @override
+  List<Object> get props => [acivated];
+}

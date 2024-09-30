@@ -27,7 +27,7 @@ class ReviseCubit extends Cubit<ReviseState> {
   }
 
   bool check(String artikel) {
-    if (artikel == currnet.artikel) {
+    if (artikel == current.artikel) {
       emit(ReviseLoading());
       getNext();
       emit(ReviseLoaded(vocabList: testList));
@@ -37,7 +37,7 @@ class ReviseCubit extends Cubit<ReviseState> {
     }
   }
 
-  Vocab get currnet {
+  Vocab get current {
     return testList[testList.length - 1];
   }
 

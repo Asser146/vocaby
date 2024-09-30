@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/widgets/my_app_bar.dart';
 import 'package:vocaby/features/add_vocab/cubit/add_vocab_cubit.dart';
 import 'package:vocaby/features/add_vocab/screens/components/add_button.dart';
@@ -21,7 +22,7 @@ class AddVocabScreen extends StatelessWidget {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 230, 228, 221),
+                color: ColorsManager.backgroundGrey ,
                 borderRadius: BorderRadius.all(Radius.circular(12.r)),
               ),
               child: Center(
