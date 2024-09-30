@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/routing/routes.dart';
 import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/styles.dart';
-import 'package:vocaby/core/widgets/my_app_bar.dart';
+import 'package:vocaby/features/home/components/option_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,68 +11,70 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/back1.png"),
-            fit: BoxFit.cover, // Ensures the image covers the entire screen
-          ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 50.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Spacer(),
-              const OptionButton(
-                title: "My List",
-                routeName: Routes.myList,
+      body: Stack(
+        children: [
+          Container(
+            height: 0.54 * MediaQuery.of(context).size.height,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/pic.png"),
+                fit: BoxFit.cover, // Ensures the image covers the entire screen
               ),
-              SizedBox(height: 30.h),
-              const OptionButton(
-                title: "Revise Your Vocab",
-                routeName: Routes.revise,
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: 0.27 * MediaQuery.of(context).size.height),
+              child: Text(
+                "Your Way To Learn\nGerman",
+                textAlign: TextAlign.center,
+                style: TextStyles.buttonTextWhite.copyWith(fontSize: 27.sp),
               ),
-              SizedBox(height: 30.h),
-              const OptionButton(
-                title: "Add More Vocab",
-                routeName: Routes.addVocav,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class OptionButton extends StatelessWidget {
-  const OptionButton({
-    super.key,
-    required this.title,
-    required this.routeName,
-  });
-  final String title;
-  final String routeName;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 50.w),
-      child: GestureDetector(
-        onTap: () => Navigator.of(context).pushNamed(routeName),
-        child: Container(
-          height: 50.h,
-          decoration: BoxDecoration(
-              color: ColorsManager.thirdColor.withOpacity(0.7),
-              borderRadius: BorderRadius.all(Radius.circular(20.sp))),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyles.buttonTextWhite,
             ),
           ),
-        ),
+          Padding(
+            padding:
+                EdgeInsets.only(top: 0.5 * MediaQuery.of(context).size.height),
+            child: Container(
+              decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color.fromARGB(255, 78, 77, 77),
+                      Color.fromARGB(255, 57, 116, 59),
+                      // Yellow
+                    ],
+                  ),
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(30.r),
+                      topLeft: Radius.circular(30.r))),
+              child: const Column(
+                children: [
+                  Spacer(),
+                  OptionButton(
+                    title: "My List",
+                    routeName: Routes.myList,
+                    order: 0,
+                  ),
+                  Spacer(),
+                  OptionButton(
+                    title: "Revise",
+                    routeName: Routes.revise,
+                    order: 1,
+                  ),
+                  Spacer(),
+                  OptionButton(
+                    title: "Add Vocab",
+                    routeName: Routes.addVocav,
+                    order: 2,
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

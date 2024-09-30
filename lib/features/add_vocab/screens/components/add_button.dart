@@ -48,9 +48,8 @@ class AddButton extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20.r)),
-            color: ColorsManager.dasColor,
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(20.r)),
+              color: ColorsManager.dasColor),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
             child: Center(

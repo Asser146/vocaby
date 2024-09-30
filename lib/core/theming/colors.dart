@@ -16,4 +16,14 @@ class ColorsManager {
             ? dieColor
             : dasColor;
   }
+
+  static const linearGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      ColorsManager.primaryColor, // Black
+      ColorsManager.secondaryColor, // Red
+      ColorsManager.thirdColor, // Yellow
+    ],
+  );
 }

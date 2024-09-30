@@ -19,7 +19,7 @@ class VocabCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 230, 228, 221),
+        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(12.r)),
       ),
       child: Padding(

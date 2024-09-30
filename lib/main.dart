@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/di/dependency_injection.dart';
 import 'package:vocaby/core/routing/app_router.dart';
 import 'package:vocaby/core/routing/routes.dart';
+import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/features/my_list/domain/vocab_storage.dart';
 
 void main() async {
@@ -24,7 +25,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Flutter Demo',
-          // theme: ThemeData(scaffoldBackgroundColor: ColorsManager.primaryColor),
+          theme: ThemeData(
+              scaffoldBackgroundColor:
+                  const Color.fromARGB(255, 242, 217, 180)),
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.onGenerateRoute, // Use AppRouter here
           initialRoute: Routes.home, // Set the initial route

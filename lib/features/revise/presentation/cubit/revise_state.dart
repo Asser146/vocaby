@@ -12,7 +12,7 @@ final class ReviseInitial extends ReviseState {}
 final class ReviseLoading extends ReviseState {}
 
 final class ReviseLoaded extends ReviseState {
-  final List<Vocab> vocabList;
+  final Queue<Vocab> vocabList;
   const ReviseLoaded({required this.vocabList});
 
   @override
