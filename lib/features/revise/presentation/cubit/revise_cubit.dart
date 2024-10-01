@@ -46,7 +46,6 @@ class ReviseCubit extends Cubit<ReviseState> {
       correctToFalse = true;
       correctNumber++;
       testQueue.removeFirst();
-      generateChoices(); // Generate new choices for the next question
       emit(ReviseLoaded(vocabList: testQueue));
       return true;
     } else {
@@ -55,6 +54,25 @@ class ReviseCubit extends Cubit<ReviseState> {
         falseNumber++;
       }
       emit(ReviseLoaded(vocabList: testQueue));
+      return false;
+    }
+  }
+
+  bool check2(String choice) {
+    emit(ReviseLoading());
+    if (choice == current.arabicTranslation) {
+      correctToFalse = true;
+      correctNumber++;
+      testQueue.removeFirst();
+      generateChoices(); // Generate new choices for the next question
+
+      return true;
+    } else {
+      if (correctToFalse) {
+        correctToFalse = false;
+        falseNumber++;
+      }
+
       return false;
     }
   }
