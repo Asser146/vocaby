@@ -18,3 +18,19 @@ final class ReviseLoaded extends ReviseState {
   @override
   List<Object> get props => [vocabList];
 }
+
+final class ReviseModeChanged extends ReviseState {
+  final bool mode;
+  const ReviseModeChanged({required this.mode});
+
+  @override
+  List<Object> get props => [mode];
+}
+
+final class ReviseChoicesUpdated extends ReviseState {
+  final List<String> choices;
+  const ReviseChoicesUpdated({required this.choices});
+
+  @override
+  List<Object> get props => [choices];
+}
