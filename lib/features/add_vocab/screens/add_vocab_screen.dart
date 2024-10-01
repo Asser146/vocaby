@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/widgets/gradient_border_container.dart';
 import 'package:vocaby/core/widgets/my_app_bar.dart';
 import 'package:vocaby/features/add_vocab/cubit/add_vocab_cubit.dart';

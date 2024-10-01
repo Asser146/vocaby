@@ -17,9 +17,9 @@ class OptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Color> colors = [
-      Color(0xff000000),
-      Color(0xffDD0000),
-      Color(0xffFFCC00)
+      ColorsManager.primaryColor,
+      ColorsManager.secondaryColor,
+      ColorsManager.thirdColor
     ];
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 50.w),

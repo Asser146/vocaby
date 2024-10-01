@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/styles.dart';
 import 'package:vocaby/features/my_list/data/artikel.dart';
 import 'package:vocaby/features/my_list/data/vocab.dart';

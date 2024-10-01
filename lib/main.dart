@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/di/dependency_injection.dart';
 import 'package:vocaby/core/routing/app_router.dart';
 import 'package:vocaby/core/routing/routes.dart';
-import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/features/my_list/domain/vocab_storage.dart';
 
 void main() async {

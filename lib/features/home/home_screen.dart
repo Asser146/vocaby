@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/routing/routes.dart';
-import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/styles.dart';
 import 'package:vocaby/features/home/components/option_button.dart';
 

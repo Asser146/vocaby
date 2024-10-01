@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:vocaby/core/theming/styles.dart';
 import 'package:vocaby/features/my_list/data/artikel.dart';
 import 'package:vocaby/features/my_list/data/vocab.dart';
 import 'package:vocaby/features/my_list/domain/vocab_storage.dart';

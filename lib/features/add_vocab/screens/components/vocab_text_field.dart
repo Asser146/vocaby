@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vocaby/core/theming/colors.dart';
 import 'package:vocaby/core/theming/styles.dart';
-import 'package:vocaby/features/add_vocab/cubit/add_vocab_cubit.dart';
 
 class VocabTextField extends StatelessWidget {
   const VocabTextField({
