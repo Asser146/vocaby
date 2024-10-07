@@ -23,11 +23,9 @@ class ReviseScreen extends StatelessWidget {
             )
           : Padding(
               padding: EdgeInsets.only(top: 20.h),
-              child: Builder(builder: (context) {
-                final vocab = context.read<ReviseCubit>().current;
-                final mode1 = context.watch<ReviseCubit>().mode1;
-                return mode1 ? Mode1(vocab: vocab) : Mode2(vocab: vocab);
-              }),
+              child: context.watch<ReviseCubit>().mode1
+                  ? Mode1(vocab: context.read<ReviseCubit>().current)
+                  : Mode2(vocab: context.read<ReviseCubit>().current),
             ),
     );
   }

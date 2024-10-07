@@ -62,27 +62,4 @@ class MyListCubit extends Cubit<MyListState> {
     isSearchActive = !isSearchActive;
     emit(MyListSearchActivate(acivated: isSearchActive));
   }
-  // void selectVocab(Vocab vocab) {
-  //   emit(MyListLoading());
-  //   currentArtikel = vocab.artikel;
-  //   emit(MyListEditing(vocab: currentVocab));
-  // }
-
-  // void editArtikel(String newArtikel) {
-  //   emit(MyListLoading());
-  //   currentArtikel = newArtikel;
-  //   emit(MyListEditing(vocab: currentVocab));
-  // }
-
-  // void changeVocab(Vocab vocab) {
-  //   emit(MyListLoading());
-  //   currentVocab = vocab;
-
-  //   // Filter the vocab list based on the current tab's artikel
-  //   artikelList = vocablist
-  //       .where((vocab) => vocab.artikel == artikel[currentTabIndex])
-  //       .toList();
-
-  //   emit(MyListEditing(vocab: currentVocab));
-  // }
 }

@@ -37,7 +37,7 @@ class ReviseCubit extends Cubit<ReviseState> {
     List<Vocab> temp = vocabList;
     temp.shuffle();
     testQueue.addAll(temp);
-    generateChoices(); // Generate choices for the first question
+    // generateChoices(); // Generate choices for the first question
   }
 
   bool check(String artikel) {
