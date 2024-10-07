@@ -38,7 +38,7 @@ class GuideText extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
               child: Text(
-                isTranslation ? vocab.arabicTranslation : "Meaning in Arabic :",
+                isTranslation ? vocab.arabicTranslation : "in Arabic :",
                 style: TextStyles.nounStyle,
               ),
             ),
